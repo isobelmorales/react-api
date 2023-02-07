@@ -28,13 +28,3 @@ This application uses token authentication instead of sessions.
 | POST   | `/sign-in`             | `users#signin`    |
 | PATCH  | `/change-password/`    | `users#changepw`  |
 | DELETE | `/sign-out/`           | `users#signout`   |
-
-### Toys
-
-##### Routes Table
-
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/toys/:movieId`         | `toys#create`     |
-| PATCH  | `/toys/:movieId/:toyId`  | `toys#update`     |
-| DELETE | `/toys/:movieId/:toyId` | `toys#delete`     |
