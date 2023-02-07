@@ -36,7 +36,7 @@ const movieSchema = new mongoose.Schema(
 
 //// VIRTUALS ////
 movieSchema.virtual('fullTitle').get(function () {
-    return `${this.name} (${this.releaseDate.year})`
+    return `${this.name} (${this.releaseDate.getFullYear()})`
 })
 
 
