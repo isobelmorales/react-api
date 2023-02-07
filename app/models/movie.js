@@ -35,7 +35,9 @@ const movieSchema = new mongoose.Schema(
 )
 
 //// VIRTUALS ////
-
+movieSchema.virtual('fullTitle').get(function () {
+    return `${this.name} (${this.releaseDate.year})`
+})
 
 
 //// EXPORT ////
