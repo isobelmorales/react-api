@@ -1,4 +1,4 @@
-# Fullstack React API
+# Movie API
 
 This API will allow the users of our react front-end application to CRUD movies and their actors. 
 
