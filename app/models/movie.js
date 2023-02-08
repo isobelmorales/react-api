@@ -40,6 +40,13 @@ const movieSchema = new mongoose.Schema(
 movieSchema.virtual('fullTitle').get(function () {
     return `${this.name} (${this.releaseDate.getFullYear()})`
 })
+movieSchema.virtual('canWatchInHour').get(function () {
+    if (this.length < 60) {
+        return `You can watch this movie in an hour`
+    } else if (this.length > 60) {
+        return `You cannot watch this movie in an hour. You need more time!`
+    }
+})
 
 
 //// EXPORT ////
