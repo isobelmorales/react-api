@@ -1,6 +1,6 @@
 # Fullstack React API
 
-This API will allow the users of our react front-end application to CRUD movies and tv shows. 
+This API will allow the users of our react front-end application to CRUD movies and their actors. 
 
 This application uses token authentication instead of sessions. 
 
@@ -28,3 +28,13 @@ This application uses token authentication instead of sessions.
 | POST   | `/sign-in`             | `users#signin`    |
 | PATCH  | `/change-password/`    | `users#changepw`  |
 | DELETE | `/sign-out/`           | `users#signout`   |
+
+### Actors
+
+##### Routes Table
+
+| Verb   | URI Pattern                  | Controller#Action |
+|--------|------------------------------|-------------------|
+| POST   | `/actors/:movieId`           | `actors#create`   |
+| PATCH  | `/actors/:movieId/:actorId`  | `actors#update`   |
+| DELETE | `/actors/:movieId/:actorId`  | `actors#delete`   |

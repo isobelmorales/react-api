@@ -1,6 +1,7 @@
 //// DEPENDENCIES ////
 
 const mongoose = require('mongoose')
+const actorSchema = require('./actor')
 
 //// SCHEMA ////
 
@@ -22,6 +23,7 @@ const movieSchema = new mongoose.Schema(
             type: Boolean,
             required: true
         },
+        actors: [actorSchema],
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
