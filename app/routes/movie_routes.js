@@ -11,7 +11,7 @@ const router = express.Router()
 
 // INDEX
 // GET /movies
-router.get('/movies', requireToken, (req, res, next) => {
+router.get('/movies', (req, res, next) => {
 	Movie.find()
 		.then((movies) => {
 			return movies.map((movie) => movie.toObject())
@@ -22,7 +22,7 @@ router.get('/movies', requireToken, (req, res, next) => {
 
 // SHOW
 // GET /movies/5a7db6c74d55bc51bdf39793
-router.get('/movies/:id', requireToken, (req, res, next) => {
+router.get('/movies/:id', (req, res, next) => {
 	Movie.findById(req.params.id)
 		.then(handle404)
 		.then((movie) => res.status(200).json({ movie: movie.toObject() }))
