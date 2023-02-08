@@ -45,9 +45,19 @@ router.patch('/actors/:movieId/:actorId', requireToken, removeBlanks, (req, res,
 
 // DESTROY
 // DELETE /actors/:movieId/:actorId
-// router.delete('/actors/:movieId/:actorId', requireToken, (req, res, next) => {
-// 	const movieId = req.params.movieId
-//  const actorId = req.params.actorId
-// })
+router.delete('/actors/:movieId/:actorId', requireToken, (req, res, next) => {
+	const movieId = req.params.movieId
+    const actorId = req.params.actorId
+    Movie.findById(movieId)
+        .then(handle404)
+        .then(movie => {
+            const theActor = movie.actors.id(actorId)
+            requireOwnership(req, movie)
+            theActor.remove()
+            return movie.save()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+})
 
 module.exports = router
