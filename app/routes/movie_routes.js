@@ -13,6 +13,7 @@ const router = express.Router()
 // GET /movies
 router.get('/movies', (req, res, next) => {
 	Movie.find()
+        .populate('owner')
 		.then((movies) => {
 			return movies.map((movie) => movie.toObject())
 		})
@@ -24,6 +25,7 @@ router.get('/movies', (req, res, next) => {
 // GET /movies/5a7db6c74d55bc51bdf39793
 router.get('/movies/:id', (req, res, next) => {
 	Movie.findById(req.params.id)
+        .populate('owner')
 		.then(handle404)
 		.then((movie) => res.status(200).json({ movie: movie.toObject() }))
 		.catch(next)
