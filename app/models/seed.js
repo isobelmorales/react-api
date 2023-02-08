@@ -3,11 +3,70 @@ const Movie = require('./movie')
 const db = require('../../config/db')
 
 const startMovies = [
-    { name: 'Sound of Music', releaseDate: new Date(2022, 1, 5), length: 123, watched: true },
-    { name: 'LOL', releaseDate: new Date(2023, 1, 10), length: 45, watched: true },
-    { name: 'Avengers', releaseDate: new Date(2010, 2, 4), length: 90, watched: true },
-    { name: 'Movie 3', releaseDate: new Date(2020, 4, 15), length: 120, watched: true },
-    { name: 'Movie 4', releaseDate: new Date(2013, 5, 22), length: 75, watched: true },
+    { 
+        name: 'The Shawshank Redemption', 
+        releaseDate: 1994, 
+        rating: 'R',
+        genre: 'Drama',
+        length: 142, 
+        watched: false
+    },{ 
+        name: 'The Dark Knight', 
+        releaseDate: 2008, 
+        rating: 'PG-13',
+        genre: 'Action/Adventure',
+        length: 152, 
+        watched: true
+    },{ 
+        name: 'Inception', 
+        releaseDate: 2010, 
+        rating: 'PG-13',
+        genre: 'Sci-fi/Mystery & thriller',
+        length: 148, 
+        watched: true
+    },{ 
+        name: 'Flight Club', 
+        releaseDate: 1999, 
+        rating: 'R',
+        genre: 'Mystery & thriller/Drama',
+        length: 139, 
+        watched: true
+    },{ 
+        name: 'Forrest Gump', 
+        releaseDate: 1994, 
+        rating: 'PG-13',
+        genre: 'Comedy/Drama',
+        length: 144, 
+        watched: true
+    },{ 
+        name: 'The Matrix', 
+        releaseDate: 1999, 
+        rating: 'R',
+        genre: 'Sci-fi/Action',
+        length: 136, 
+        watched: false
+    },{ 
+        name: 'Star Wars: Episode IV - A New Hope', 
+        releaseDate: 1977, 
+        rating: 'PG',
+        genre: 'Sci-fi/Adventure',
+        length: 121, 
+        watched: true
+    },{ 
+        name: 'The Godfather', 
+        releaseDate: 1972, 
+        rating: 'R',
+        genre: 'Crime/Drama',
+        length: 175, 
+        watched: false
+    },{ 
+        name: 'Avengers: Endgame', 
+        releaseDate: 2009, 
+        rating: 'PG-13',
+        genre: 'Action/Adventure',
+        length: 181, 
+        watched: true
+    }
 ]
 
 mongoose.connect(db, {

@@ -9,12 +9,20 @@ const movieSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: true,
+			required: true
 		},
 		releaseDate: {
-			type: Date,
-			required: true,
+			type: Number,
+			required: true
 		},
+        rating: {
+            type: String, 
+            enum: ['G', 'PG', 'PG-13', 'R', 'Unrated']
+        },
+        genre: {
+            type: String,
+            required: true
+        },
         length: {
             type: Number,
             required: true
@@ -38,7 +46,7 @@ const movieSchema = new mongoose.Schema(
 
 //// VIRTUALS ////
 movieSchema.virtual('fullTitle').get(function () {
-    return `${this.name} (${this.releaseDate.getFullYear()})`
+    return `${this.name} (${this.releaseDate})`
 })
 movieSchema.virtual('canWatchInHour').get(function () {
     if (this.length < 60) {
